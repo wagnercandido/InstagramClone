@@ -1,0 +1,77 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <div class="card-title"></div>
+    
+    <form novalidate #formulario="ngForm" (ngSubmit)="cadastrarUsuario(formulario)">
+      <div class="form-group">
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="E-mail"
+          minlength="5"
+          maxlength="30"
+          required
+          name="email"
+          ngModel
+          #inputEmail="ngModel"
+        >
+        <small *ngIf="!inputEmail.valid && inputEmail.touched" class="form-text text-danger">E-mail inválido</small>
+      </div>
+      <div class="form-group">
+        <input 
+          type="text"
+          class="form-control" 
+          placeholder="Nome completo"
+          minlength="8"
+          maxlength="30"
+          required
+          name="nome"
+          ngModel
+          #inputNome="ngModel"
+        >
+        <small *ngIf="!inputNome.valid && inputNome.touched" class="form-text text-danger">Nome inválido</small>
+      </div>
+      <div class="form-group">
+        <input 
+          type="text"
+          class="form-control" 
+          placeholder="Nome de usuário"
+          minlength="5"
+          maxlength="20"
+          required
+          name="username"
+          ngModel
+          #inputUser="ngModel"
+        >
+        <small *ngIf="!inputEmail.valid && inputEmail.touched" class="form-text text-danger">Usuário Inválido</small>
+      </div>
+      <div class="form-group">
+        <input 
+          type="password"
+          class="form-control" 
+          placeholder="Senha"
+          minlength="6"
+          maxlength="10"
+          required
+          name="senha"
+          ngModel
+          #inputSenha="ngModel"
+        >
+        <small *ngIf="!inputSenha.valid && inputSenha.touched" class="form-text text-danger">Senha Obrigatória</small>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm btn-block" disabled="{{ formulario.valid ? '' : 'disabled' }}">Cadastre-se</button>
+    </form>
+    <hr />
+
+    <p class="small text-center">Ao cadastrar-se, você concorda com nossos <b>Termos</b> e <b>Política de Privacidade</b>.</p>
+
+  </div>
+</div>
+<br />
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <p class="card-text">
+      Tem uma conta? <a href="#" class="card-link" (click)="exibirPainelLogin()" >Faça login</a>
+    </p> 
+  </div>
+</div>
